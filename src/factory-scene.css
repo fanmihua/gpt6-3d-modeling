@@ -1,0 +1,178 @@
+.factory-scene-host {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 49% 48%, rgba(36, 68, 82, .3) 0%, rgba(10, 28, 41, .06) 60%, transparent 86%);
+}
+
+.factory-scene-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  touch-action: none;
+}
+
+.factory-scene-canvas:focus-visible {
+  outline: 1px solid rgba(82, 199, 224, .6);
+  outline-offset: -3px;
+}
+
+.factory-scene-ui,
+.factory-scene-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.factory-scene-ui { z-index: 3; }
+.factory-scene-host [hidden] { display: none !important; }
+
+.factory-model-tag {
+  --tag-stroke: rgba(89, 164, 189, .68);
+  --tag-fill: rgba(7, 29, 41, .89);
+  --tag-status: #60d5bb;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 148px;
+  height: 40px;
+  padding: 0 7px 7px;
+  color: #d4e9ef;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+  will-change: transform;
+  transition: color .16s ease;
+}
+
+.factory-model-tag svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 3px 4px rgba(0, 10, 17, .2));
+}
+
+.factory-model-tag path {
+  fill: var(--tag-fill);
+  stroke: var(--tag-stroke);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  transition: fill .16s ease, stroke .16s ease;
+}
+
+.factory-model-tag-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 8px;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .5px;
+}
+
+.factory-model-tag-content i {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--tag-status);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--tag-status) 35%, transparent);
+}
+
+.factory-model-tag.has-alarm {
+  --tag-stroke: rgba(217, 169, 88, .76);
+  --tag-status: #f1ba69;
+}
+
+.factory-model-tag.has-maintenance { --tag-status: #b5a5df; }
+
+.factory-model-tag:hover,
+.factory-model-tag.is-selected,
+.factory-model-tag:focus-visible {
+  --tag-stroke: #78d9ed;
+  --tag-fill: rgba(14, 62, 78, .97);
+  color: #effcff;
+  outline: none;
+}
+
+.factory-model-tag.has-alarm.is-selected {
+  --tag-stroke: #f1ba69;
+  --tag-fill: rgba(73, 52, 30, .96);
+}
+
+.factory-scene-tooltip {
+  position: absolute;
+  z-index: 7;
+  padding: 9px 12px;
+  border: 1px solid rgba(99, 167, 188, .34);
+  background: rgba(5, 22, 32, .95);
+  color: #d7edf4;
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(0, 8, 16, .2);
+}
+
+.factory-scene-status {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  color: #86a5b4;
+  background: radial-gradient(ellipse, rgba(12, 38, 53, .98), rgba(5, 23, 34, .96));
+  pointer-events: auto;
+  z-index: 10;
+  font-size: 12px;
+}
+
+.factory-scene-status strong { color: #c9e5ef; font-size: 15px; font-weight: 500; letter-spacing: 2px; }
+.factory-scene-spinner {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(95, 193, 218, .17);
+  border-top-color: #6bc8df;
+  border-right-color: rgba(107, 200, 223, .45);
+  border-radius: 50%;
+  animation: factory-scene-spin 1s linear infinite;
+  margin-bottom: 6px;
+}
+
+.factory-scene-error-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: #efbb79;
+  border: 1px solid rgba(239, 187, 121, .6);
+  font-size: 20px;
+}
+
+.factory-scene-status button {
+  margin-top: 5px;
+  padding: 8px 18px;
+  border: 1px solid rgba(91, 174, 198, .45);
+  background: #143745;
+  color: #c7edf6;
+  font: inherit;
+  cursor: pointer;
+}
+
+@keyframes factory-scene-spin { to { transform: rotate(360deg); } }
+@container (max-width: 700px) { .factory-model-tag { width: 126px; } }
+@media (prefers-reduced-motion: reduce) { .factory-scene-spinner { animation-duration: 2s; } }

@@ -1,0 +1,4 @@
+# Preserve CAD bytes: the model manifest records the original drawing checksum.
+*.dxf binary
+*.glb binary
+*.blend binary

@@ -1,0 +1,62 @@
+[
+  {
+    "asset": "leafy_grass",
+    "file": "leafy_grass_diff_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/leafy_grass/leafy_grass_diff_1k.jpg",
+    "sourceMd5": "0dbc071e91d6905edfcfbe8eb785a1ab",
+    "bytes": 1195394,
+    "localBytes": 396767,
+    "localSha256": "91fe91cb9ee6ad722326775c3a30485a6b67433399d0065f41e3f03de7d749f1",
+    "optimization": "1024x1024 JPEG quality 86; no crop or pixel color changes beyond JPEG compression"
+  },
+  {
+    "asset": "leafy_grass",
+    "file": "leafy_grass_nor_gl_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/leafy_grass/leafy_grass_nor_gl_1k.jpg",
+    "sourceMd5": "8279e096e204ea326d57a318869f99df",
+    "bytes": 1466049,
+    "localBytes": 734059,
+    "localSha256": "39d0290ce8389f75bb433d67572e81ae54e730e5f4ab122c95af5e5751558a5c",
+    "optimization": "1024x1024 JPEG quality 90; no crop or pixel color changes beyond JPEG compression"
+  },
+  {
+    "asset": "asphalt_02",
+    "file": "asphalt_02_diff_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_02/asphalt_02_diff_1k.jpg",
+    "sourceMd5": "fa19772d4817754c3efab708c651f5a8",
+    "bytes": 731707,
+    "localBytes": 430264,
+    "localSha256": "725ab18eda993e1f11d0caa2dbc4cb2a86e2bf274e32aae53ba7a7903f79bbdf",
+    "optimization": "1024x1024 JPEG quality 86; no crop or pixel color changes beyond JPEG compression"
+  },
+  {
+    "asset": "asphalt_02",
+    "file": "asphalt_02_nor_gl_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_02/asphalt_02_nor_gl_1k.jpg",
+    "sourceMd5": "338da8de636ea36133170578cac82e8e",
+    "bytes": 1240122,
+    "localBytes": 727405,
+    "localSha256": "02ea070038f30714f6ccf685aeee73891ea2b9cce53090c2958be9c816aba407",
+    "optimization": "1024x1024 JPEG quality 90; no crop or pixel color changes beyond JPEG compression"
+  },
+  {
+    "asset": "bark_brown_02",
+    "file": "bark_brown_02_diff_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_diff_1k.jpg",
+    "sourceMd5": "6669cca520594bdca19f94084984ab72",
+    "bytes": 659592,
+    "localBytes": 343702,
+    "localSha256": "582a3494b5ae639ae6179c8dff1c5a96a23cebe874088c81be0ffca0dfa25e95",
+    "optimization": "1024x1024 JPEG quality 86; no crop or pixel color changes beyond JPEG compression"
+  },
+  {
+    "asset": "bark_brown_02",
+    "file": "bark_brown_02_nor_gl_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_nor_gl_1k.jpg",
+    "sourceMd5": "1cad3fe0349a44df2d4d1c2859c79920",
+    "bytes": 1015623,
+    "localBytes": 638958,
+    "localSha256": "f6431389ce37496e75db9c7adc603522a3b9269c7374f5decaec1a657f60a6c5",
+    "optimization": "1024x1024 JPEG quality 90; no crop or pixel color changes beyond JPEG compression"
+  }
+]

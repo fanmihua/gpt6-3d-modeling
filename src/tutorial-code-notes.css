@@ -1,0 +1,34 @@
+/* Optional reading stays inside its existing lesson, outside the narration. */
+.code-note{min-width:0;max-width:100%;margin-top:24px;border-top:1px solid #dededb;border-bottom:1px solid #dededb;color:#333}
+.code-note+.code-note{margin-top:0;border-top:0}
+.code-note>summary{display:grid;grid-template-columns:auto minmax(0,1fr) 16px;gap:15px;align-items:center;padding:17px 0;cursor:pointer;list-style:none;font-size:14px;line-height:1.7;font-weight:500}
+.code-note>summary::-webkit-details-marker{display:none}
+.code-note>summary:hover{color:#000;background:#fafaf8}
+.code-note>summary:focus-visible,.code-note pre:focus-visible,.code-note-table:focus-visible{outline:2px solid #555;outline-offset:4px}
+.code-note-kicker{color:#777;font-size:11px;font-weight:400;white-space:nowrap}
+.code-note-sign{position:relative;width:12px;height:12px;justify-self:end;margin-right:2px}
+.code-note-sign:before,.code-note-sign:after{content:"";position:absolute;background:#666}
+.code-note-sign:before{left:0;top:5px;width:12px;height:1px}
+.code-note-sign:after{left:5px;top:0;width:1px;height:12px}
+.code-note[open]>summary{border-bottom:1px solid #eee}
+.code-note[open] .code-note-sign:after{display:none}
+.code-note-body{min-width:0;padding:8px 0 23px}
+.code-note-body>p{margin:13px 0;font-size:13px;line-height:1.95;color:#666;max-width:900px;overflow-wrap:anywhere}
+.code-note-body>p:first-child{margin-top:0}
+.code-note-body>p:last-child{margin-bottom:0}
+.code-note-body strong{font-weight:600;color:#333}
+.code-note-body>h4{font-family:inherit;font-size:15px;font-weight:600;line-height:1.7;margin:27px 0 12px}
+.code-note-body p code{font:12px/1.8 var(--mono);color:#444;background:#f1f1ef;padding:2px 4px;border-radius:3px}
+.code-note-code{min-width:0;max-width:100%;margin:17px 0;border:1px solid #e4e4e0;background:#f7f7f5}
+.code-note-code figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:10px 16px;margin:0;border-bottom:1px solid #e4e4e0;color:#666;font:11px/1.7 var(--mono);overflow-wrap:anywhere}
+.code-note-code figcaption small{flex-shrink:0;color:#888;font:10px/1.7 var(--mono)}
+.code-note-code pre{display:block;max-width:100%;overflow-x:auto;margin:0;padding:17px 19px;color:#252525;font:12px/1.85 var(--mono);white-space:pre;tab-size:4;scrollbar-width:thin}
+.code-note-code pre code{font:inherit;white-space:inherit;background:none;padding:0}
+.code-note-comment{color:#74746e}
+.code-note-table{width:100%;max-width:100%;overflow-x:auto;margin:18px 0;scrollbar-width:thin}
+.code-note-table table{width:100%;border-collapse:collapse;text-align:left;font-size:12px;line-height:1.85;color:#555}
+.code-note-table th{font-weight:500;color:#333;background:#f5f5f2;white-space:nowrap}
+.code-note-table th,.code-note-table td{padding:11px 14px;border-bottom:1px solid #e5e5e1;vertical-align:top}
+.code-note-table td:first-child{color:#333;min-width:130px;overflow-wrap:anywhere}
+.code-note-table td{min-width:150px}
+@media(max-width:700px){.code-note>summary{gap:10px;font-size:12px;padding:15px 0}.code-note-kicker{font-size:10px}.code-note-body>p{font-size:12px}.code-note-code pre{font-size:11px;padding:14px}.code-note-code figcaption{padding:9px 12px;font-size:10px}.code-note-table td,.code-note-table th{padding:10px 12px}.code-note-table td:first-child{min-width:105px}}

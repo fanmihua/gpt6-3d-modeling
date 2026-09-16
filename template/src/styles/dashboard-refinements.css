@@ -1,0 +1,53 @@
+/* Keep the supplied v2 dashboard; refine only the masthead and device picker. */
+.masthead{grid-template-columns:260px 350px 700px 350px 260px;align-items:start}
+.header-lines{opacity:.8}
+.brand{height:66px;padding-top:16px;gap:9px}
+.brand-mark{width:31px;height:33px;filter:none}
+.brand strong{font-size:15px;letter-spacing:.8px;color:#a9cce4}
+.brand small{font-size:8px;letter-spacing:.65px;color:#6089a6}
+.title-block{margin:16px 0 0;align-self:start}
+.title-block h1{font-size:30px;line-height:42px;letter-spacing:2px;font-weight:650;color:#e9f6ff;text-shadow:0 0 16px #1e8edf30}
+.top-nav{padding-top:22px;gap:12px}
+.nav-item{height:34px;font-size:13px;letter-spacing:.6px;flex-basis:94px}
+.nav-item:not(.active):after{display:none}
+.nav-item.active{box-shadow:inset 0 -1px 0 #34b5e44f;background:#083556a8;border-color:#1577a0a8;text-shadow:none}
+.nav-item.active:before{border-color:transparent}
+.nav-item.active:after{height:1px;box-shadow:0 1px 5px #22b9ef70}
+.header-info{padding-top:20px}
+.header-status{gap:7px;margin-top:4px}
+.clock-row{gap:8px}
+.clock-row time{font-size:14px}
+
+.device-selection{gap:9px}
+.device-picker-trigger{display:inline-flex;align-items:center;justify-content:space-between;gap:13px;min-width:123px;height:30px;padding:0 10px 0 12px;border:1px solid #1a6289;border-radius:3px;background:#06243b;color:#d0e9f7;font-size:12px;line-height:1;box-shadow:inset 0 1px 0 #3b8bb315}
+.device-picker-trigger:hover{background:#093451!important;border-color:#298cba;color:#effaff}
+.device-picker-trigger[aria-expanded="true"]{border-color:#38b8e6;background:#0a3550;box-shadow:0 0 0 2px #1e9ad81a}
+.picker-name{white-space:nowrap}
+.picker-chevron{display:flex;align-items:center;color:#6fafd0;transition:transform .18s}
+.picker-chevron .icon{width:13px;height:13px;transform:rotate(90deg)}
+.device-picker-trigger[aria-expanded="true"] .picker-chevron{transform:rotate(180deg);color:#8cddf9}
+.device-menu{position:absolute;z-index:60;width:246px;padding:6px;border:1px solid #27769c;border-radius:5px;background:#061c2e;box-shadow:0 12px 32px #000a,0 0 0 1px #00111f,inset 0 1px 0 #5bc4e518;color:#cfe6f5}
+.device-menu-heading{height:29px;margin:0 6px 5px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #154460;color:#709bb7;font-size:11px;letter-spacing:.5px}
+.device-menu-heading small{font-size:10px;color:#527f9c;letter-spacing:0}
+.device-option{height:55px;display:flex;align-items:center;gap:10px;position:relative;padding:0 10px;margin:3px 0;border:1px solid transparent;border-radius:3px;cursor:pointer;transition:background .12s,border-color .12s}
+.device-option:hover,.device-option.is-highlighted{background:#0b324d}
+.device-option.is-selected{background:#0a3b59;border-color:#1a6287}
+.device-option.is-selected:before{content:'';position:absolute;left:-1px;top:11px;bottom:11px;width:2px;background:#48c9f4}
+.device-option-icon{display:grid;place-items:center;width:29px;height:31px;color:#5b94b4;background:#0b2c42;border-radius:3px;flex:none}
+.device-option-icon .icon{width:18px;height:18px}
+.device-option.is-selected .device-option-icon{color:#73d4f8;background:#104763}
+.device-option-copy{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}
+.device-option-copy strong{font-size:12px;font-weight:500;line-height:14px;color:#d6edf8}
+.device-option-copy small{font-family:var(--mono);font-size:10px;line-height:11px;letter-spacing:.6px;color:#6f9cba}
+.device-option-state{display:inline-flex;align-items:center;gap:5px;color:var(--status-color);font-size:10px;white-space:nowrap}
+.device-option-state b{width:5px;height:5px;border-radius:50%;background:currentColor}
+.device-option-check{width:11px;color:#78d9f9;font-size:14px;flex:none;text-align:center}
+.device-panel .status-badge{height:29px;padding:0 8px}
+/* A quiet gradient title plate, with one short folded accent on each side. */
+.header-lines{opacity:1}
+.title-block h1{text-shadow:0 1px 0 #3c79aa55,0 0 16px #288bdb45}
+.title-wing{position:absolute;top:25px;width:78px;height:16px;pointer-events:none;border-bottom:1px solid #258abb80}
+.title-wing:before{content:'';position:absolute;width:50px;height:15px;top:-1px;border-top:2px solid #45cafa99;border-right:2px solid #45cafa99;transform:skewX(42deg);box-shadow:1px -1px 8px #1198dd15}
+.title-wing:after{content:'';position:absolute;width:24px;height:2px;background:#72d8f3;opacity:.65;bottom:-1px;right:0}
+.title-wing-left{left:49px}
+.title-wing-right{right:49px;transform:scaleX(-1)}

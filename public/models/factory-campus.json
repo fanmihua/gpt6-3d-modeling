@@ -1,0 +1,169 @@
+{
+  "source": "single-photo-reconstruction",
+  "description": "依据单张实拍照片重建的可交互厂区；布局和体量为比例推演，建筑不可见面及内部设备不代表工程实测。",
+  "coordinateSystem": "web-y-up",
+  "bounds": {
+    "min": [
+      -112,
+      -3,
+      -92
+    ],
+    "max": [
+      112,
+      33,
+      103.5
+    ]
+  },
+  "zones": [
+    {
+      "id": "admin",
+      "name": "综合管理楼",
+      "center": [
+        -48,
+        10,
+        40
+      ],
+      "size": [
+        66,
+        20,
+        30
+      ]
+    },
+    {
+      "id": "sedimentation",
+      "name": "沉淀处理区",
+      "center": [
+        40,
+        3.5,
+        8
+      ],
+      "size": [
+        64,
+        7,
+        32
+      ]
+    },
+    {
+      "id": "filtration",
+      "name": "深度过滤区",
+      "center": [
+        40,
+        4.5,
+        -35
+      ],
+      "size": [
+        64,
+        9,
+        34
+      ]
+    },
+    {
+      "id": "tanks",
+      "name": "储罐与供水区",
+      "center": [
+        -20,
+        12.5,
+        -63
+      ],
+      "size": [
+        54,
+        25,
+        29
+      ]
+    },
+    {
+      "id": "dosing",
+      "name": "加药与消毒区",
+      "center": [
+        -62,
+        9,
+        -25
+      ],
+      "size": [
+        64,
+        18,
+        69
+      ]
+    },
+    {
+      "id": "workshop",
+      "name": "送水泵房",
+      "center": [
+        83,
+        7,
+        45
+      ],
+      "size": [
+        42,
+        14,
+        24
+      ]
+    },
+    {
+      "id": "utilities",
+      "name": "动力配电区",
+      "center": [
+        80,
+        9,
+        -64
+      ],
+      "size": [
+        42,
+        18,
+        24
+      ]
+    },
+    {
+      "id": "gate",
+      "name": "厂区出入口",
+      "center": [
+        30,
+        4.5,
+        79
+      ],
+      "size": [
+        27,
+        9,
+        14
+      ]
+    }
+  ],
+  "stats": {
+    "meshObjects": 98,
+    "materials": 29,
+    "vertices": 404894,
+    "triangles": 440156,
+    "zones": 8
+  },
+  "layers": [
+    "buildings",
+    "greenery",
+    "infrastructure"
+  ],
+  "materialSources": {
+    "provider": "Poly Haven",
+    "license": "CC0-1.0",
+    "assets": [
+      "leafy_grass",
+      "asphalt_02",
+      "bark_brown_02"
+    ],
+    "resolution": 1024,
+    "maps": [
+      "albedo",
+      "normal-openGL"
+    ],
+    "documentation": "docs/texture-sources.md"
+  },
+  "vegetation": {
+    "geometry": "procedural branched trees, irregular opaque leaf clusters and individual leaflets",
+    "species": "unspecified",
+    "isPhotogrammetry": false
+  },
+  "limitations": [
+    "单张照片估算比例，非测绘模型",
+    "背面和不可见细节依据通用厂区结构补建",
+    "仅保留厂内建筑、池体、管线、道路和景观，不包含山河天空",
+    "工艺名称与运营数据由界面作演示映射"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "gpt6-3d-modeling",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "GPT6 3D建模测评：网页课件、Blender 建模源码、交互式水厂演示与空模型大屏模板",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4210",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4211",
+    "test": "node --test tests/*.test.mjs",
+    "export:course": "node scripts/build-tutorial.mjs",
+    "export:demo": "node scripts/build-standalone.mjs",
+    "export:template": "node template/scripts/build-standalone.mjs",
+    "export:all": "npm run export:course && npm run export:demo && npm run export:template"
+  },
+  "dependencies": {
+    "three": "0.186.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10",
+    "vite": "6.4.3"
+  }
+}

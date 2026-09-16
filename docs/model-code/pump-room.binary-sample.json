@@ -1,0 +1,158 @@
+{
+  "source": "public/models/pump-room.glb",
+  "sha256": "a1805308712650b88fb1bbc8e59a66b7eb572605f734e93ba3eaa4d6adead316",
+  "header": {
+    "magic": "glTF",
+    "version": 2,
+    "fileBytes": 7505848
+  },
+  "chunks": [
+    {
+      "type": 1313821514,
+      "dataOffset": 20,
+      "length": 218676
+    },
+    {
+      "type": 5130562,
+      "dataOffset": 218704,
+      "length": 7287144
+    }
+  ],
+  "counts": {
+    "nodes": 294,
+    "meshes": 205,
+    "materials": 17,
+    "accessors": 692,
+    "bufferViews": 692,
+    "images": 0,
+    "animations": 0,
+    "cameras": 0
+  },
+  "selectedPath": [
+    {
+      "index": 74,
+      "name": "P-01"
+    },
+    {
+      "index": 29,
+      "name": "P-01::base"
+    },
+    {
+      "index": 28,
+      "name": "P-01::base::base"
+    },
+    {
+      "index": 24,
+      "name": "P-01::base::base__bolt"
+    }
+  ],
+  "meshIndex": 20,
+  "materialIndex": 0,
+  "positionSample": {
+    "accessorIndex": 83,
+    "accessor": {
+      "bufferView": 83,
+      "componentType": 5126,
+      "count": 496,
+      "max": [
+        0.022516660392284393,
+        0.04500000178813934,
+        2.0652174949645996
+      ],
+      "min": [
+        -1.0125166177749634,
+        -0.04500000178813934,
+        -0.025217439979314804
+      ],
+      "type": "VEC3"
+    },
+    "bufferViewIndex": 83,
+    "bufferView": {
+      "buffer": 0,
+      "byteLength": 5952,
+      "byteOffset": 1054080,
+      "target": 34962
+    },
+    "fileByteOffsetOfFirstValue": 1272784,
+    "firstValues": [
+      [
+        0.0,
+        -0.04500000178813934,
+        -0.0225358996540308
+      ],
+      [
+        -0.0025980761274695396,
+        -0.04200000315904617,
+        -0.024500001221895218
+      ],
+      [
+        0.0025980761274695396,
+        -0.04200000315904617,
+        -0.024500001221895218
+      ]
+    ]
+  },
+  "indexSample": {
+    "accessorIndex": 86,
+    "accessor": {
+      "bufferView": 86,
+      "componentType": 5123,
+      "count": 1968,
+      "type": "SCALAR"
+    },
+    "bufferViewIndex": 86,
+    "bufferView": {
+      "buffer": 0,
+      "byteLength": 3936,
+      "byteOffset": 1069952,
+      "target": 34963
+    },
+    "fileByteOffsetOfFirstValue": 1288656,
+    "firstValues": [
+      [
+        0
+      ],
+      [
+        4
+      ],
+      [
+        5
+      ],
+      [
+        0
+      ],
+      [
+        5
+      ],
+      [
+        10
+      ],
+      [
+        1
+      ],
+      [
+        9
+      ],
+      [
+        7
+      ]
+    ]
+  },
+  "firstTriangles": [
+    [
+      0,
+      4,
+      5
+    ],
+    [
+      0,
+      5,
+      10
+    ],
+    [
+      1,
+      9,
+      7
+    ]
+  ]
+}

@@ -1,0 +1,11 @@
+.model-navigation{position:absolute;right:16px;bottom:82px;display:flex;flex-direction:column;align-items:flex-end;gap:7px;z-index:6;pointer-events:auto}
+.model-navigation-buttons{display:flex;gap:2px;padding:3px;border:1px solid #24536b;background:#041c2eef;box-shadow:0 3px 12px #0002}
+.model-navigation button{min-width:44px;min-height:28px;padding:5px 9px;border:1px solid transparent;color:#89aec3;background:transparent;font-size:11px;line-height:16px;white-space:nowrap}
+.model-navigation button[aria-pressed=true]{color:#b4efff;background:#0a3b53;border-color:#2b7793}
+.model-navigation button:hover,.model-navigation button:focus-visible{color:#e3f8ff;background:#0c3c55;outline:none;border-color:#3889a5}
+.model-navigation [data-navigation-action=reset]{margin-left:2px;border-left-color:#21465b}
+.model-navigation-hint{font-size:9px;line-height:13px;color:#759bae;letter-spacing:.1px;text-shadow:0 1px 4px #041827}
+.pump-scene.is-inspecting>.model-navigation{top:59px;bottom:auto}
+.pump-scene.is-inspecting .model-navigation-hint{display:none}
+.pump-scene.is-inspecting .inspection-selection{top:104px}
+@media(max-width:1460px){.model-navigation{right:12px;bottom:82px}.model-navigation button{font-size:10px;min-width:39px;padding:4px 7px;min-height:26px}.model-navigation-hint{font-size:8px}.pump-scene.is-inspecting>.model-navigation{right:12px;top:55px}.pump-scene.is-inspecting .inspection-selection{top:99px}}

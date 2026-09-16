@@ -1,0 +1,22 @@
+.device-illustration.has-device-model{padding:0;overflow:hidden;min-height:145px}
+.device-model{position:absolute;inset:0;z-index:2}
+.device-model-viewport{position:absolute;inset:14px 0 42px;min-width:0;min-height:0}
+.device-model-viewport canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:none;outline:none}
+.device-model-viewport canvas:active{cursor:grabbing}
+.device-model-viewport canvas:focus-visible{box-shadow:inset 0 0 0 1px #56c7ec88}
+.device-model-label{position:absolute;left:3px;top:0;display:flex;align-items:center;gap:5px;color:#80a8c4;font:9px var(--mono);line-height:14px;pointer-events:none}
+.device-model-label i{width:4px;height:4px;border-radius:50%;background:var(--model-status,#40d7be)}
+.device-model-loading{position:absolute;inset:38px 0 44px;display:grid;place-items:center;margin:0;color:#8bb3ca;font-size:10px;background:#051c30bd}
+.device-model-loading[hidden]{display:none}
+.device-model-controls{position:absolute;bottom:16px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:5px}
+.device-model-controls button{height:24px;border:1px solid #23628299;background:#0a3048aa;color:#92cce7;font-size:10px;line-height:20px;white-space:nowrap}
+.device-model-controls button:hover{background:#104664;color:#def6ff;border-color:#58badaaa}
+.device-model-controls button:focus-visible{outline:1px solid #8bdef4;outline-offset:2px}
+.device-model-controls button:disabled{opacity:.5;cursor:default}
+.device-model-reset{width:25px;font-size:16px!important}
+.device-model-inspect{padding:0 9px;display:flex;gap:8px;align-items:center}
+.device-model-inspect span{font-size:13px;color:#64c6e4}
+.device-model-hint{position:absolute;bottom:0;left:0;right:0;text-align:center;color:#7299b1;font-size:10px;line-height:13px;white-space:nowrap;pointer-events:none}
+.device-illustration.device-model-ready>.device-platform,.device-illustration.device-model-ready>img,.device-illustration.device-model-ready>span{display:none}
+.device-model.is-fallback .device-model-viewport,.device-model.is-fallback .device-model-label,.device-model.is-fallback .device-model-hint,.device-model.is-fallback .device-model-reset{display:none}
+.device-model.is-fallback .device-model-loading{inset:auto 0 43px;padding:4px 0;background:#041a2dcc}

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+exports/
+template/exports/
+.DS_Store
+*.blend1
+*.blend2
+__pycache__/
+.env
+.env.*
+*.log

@@ -1,0 +1,79 @@
+/* Keep desktop data legible: a short window scrolls instead of compressing cards. */
+html,body,#viewport{min-height:940px}
+.dashboard{min-height:940px;grid-template-rows:68px minmax(818px,1fr) 24px}
+.workspace{grid-template-columns:clamp(300px,22.6vw,434px) minmax(0,1fr) clamp(320px,21.4vw,412px);gap:14px}
+.left-column,.center-column,.right-column{gap:14px}
+.left-column{grid-template-rows:minmax(230px,1.1fr) minmax(178px,.97fr) minmax(186px,.9fr) minmax(166px,.88fr)}
+.right-column{grid-template-rows:minmax(300px,1.15fr) minmax(290px,1.2fr) minmax(198px,.88fr)}
+.panel-heading{height:42px;padding-left:15px;padding-right:15px;gap:8px}
+.metric-grid,.plant-content,.status-content,.water-grid,.live-data-grid,.chart-wrap{height:calc(100% - 42px)}
+.metric-grid,.plant-content,.live-data-grid,.water-grid{padding:12px;gap:10px}
+.metric-card{padding:8px 12px;gap:0;align-items:center}
+.metric-icon{position:absolute;right:10px;top:10px;width:18px;height:18px;background:none;box-shadow:none;opacity:.7}
+.metric-icon .icon{width:18px;height:18px}
+.metric-copy{width:100%}
+.metric-copy p{font-size:11px;line-height:17px;padding-right:16px;margin-bottom:2px}
+.number strong,.metric-card:nth-child(2) .number strong,.metric-card:nth-child(4) .number strong{font-size:23px;line-height:27px;letter-spacing:0}
+.number small{font-size:10px;line-height:1.2;margin-left:5px}
+.metric-change{line-height:15px;margin-top:3px;font-size:10px}
+.metric-change em{font-size:9px}
+.plant-content{gap:12px}
+.asset-list>div{padding:2px 0}
+.status-content{padding:12px 16px 12px 12px;gap:14px}
+.status-legend{gap:6px}
+.status-legend>div{height:19px}
+.donut-holder{width:116px;height:116px}
+.alarm-table-wrap{height:calc(100% - 42px);padding:7px 12px 10px}
+.alarm-table th,.alarm-table td{padding-top:4px;padding-bottom:4px}
+.device-panel .panel-heading{padding-left:13px;padding-right:13px}
+.device-hero{padding:16px 16px 8px 12px;gap:12px;grid-template-columns:minmax(0,1fr) minmax(124px,1fr)}
+.device-illustration{max-height:172px}
+.device-info h3{font-size:21px;margin-bottom:5px}
+.device-eyebrow{margin-bottom:7px}
+.device-info dl{gap:8px;margin-top:13px}
+.device-info dl>div{line-height:16px}
+.device-actions{padding:10px 14px 14px;gap:12px}
+.data-tabs{height:42px;padding:0 12px}
+.data-tabs button{height:42px}
+.data-card,.water-grid .data-card{padding:9px 12px;justify-content:center}
+.data-label,.water-grid .data-label{font-size:11px;line-height:15px;margin-bottom:5px}
+.data-number strong,.water-grid .data-number strong{font-size:23px;line-height:26px}
+.data-number small{font-size:10px;margin-left:5px}
+.data-spark,.water-grid .data-spark{right:10px;top:10px;width:33px;height:15px;opacity:.65}
+.device-trend,.device-history{height:calc(100% - 42px);padding:15px}
+.chart-wrap{padding-top:10px}
+@media(min-width:1600px){
+  .metric-grid,.plant-content,.live-data-grid,.water-grid{padding:14px;gap:12px}
+  .metric-card{padding:12px 16px}
+  .metric-icon{right:13px;top:13px;width:21px;height:21px}.metric-icon .icon{width:21px;height:21px}
+  .metric-copy p{font-size:12px;line-height:19px;margin-bottom:4px}
+  .number strong,.metric-card:nth-child(2) .number strong,.metric-card:nth-child(4) .number strong{font-size:27px;line-height:30px}
+  .number small{font-size:11px}.metric-change{margin-top:5px}
+  .data-card,.water-grid .data-card{padding:12px 16px}
+  .data-label,.water-grid .data-label{font-size:12px;line-height:17px;margin-bottom:7px}
+  .data-number strong,.water-grid .data-number strong{font-size:26px;line-height:29px}
+  .data-number small{font-size:11px}
+  .data-spark,.water-grid .data-spark{width:42px;height:17px;right:13px;top:13px}
+  .device-hero{padding:18px 20px 12px 16px;gap:18px}.device-info dl{gap:10px;margin-top:16px}
+  .device-actions{padding:12px 16px 16px}
+  .status-content{padding:14px 20px;gap:20px}.status-legend{gap:9px}.donut-holder{width:134px;height:134px}
+}
+
+/* Reserve the content's real height, including the status and table rows. */
+.metric-copy p{line-height:15px;margin-bottom:1px}
+.number strong,.metric-card:nth-child(2) .number strong,.metric-card:nth-child(4) .number strong{line-height:25px}
+.metric-change{line-height:13px;margin-top:2px}
+.alarm-table th,.alarm-table td{padding-top:2px;padding-bottom:2px}
+.severity{padding:1px 3px;line-height:12px}
+@media(min-width:1600px){.metric-copy p{line-height:19px;margin-bottom:4px}.number strong,.metric-card:nth-child(2) .number strong,.metric-card:nth-child(4) .number strong{line-height:30px}.metric-change{line-height:15px;margin-top:5px}}
+.water-grid .data-card{padding-top:6px;padding-bottom:6px}
+.water-grid .data-label{margin-bottom:4px}
+@media(min-width:1600px){.water-grid .data-card{padding-top:9px;padding-bottom:9px}}
+@media(min-width:1600px){.metric-card{padding-top:8px;padding-bottom:8px}.metric-change{margin-top:3px}}
+/* Size this pair to the available body height, including short, wide screens. */
+.status-content{container-type:size;grid-template-columns:minmax(0,.95fr) minmax(0,1.15fr);padding:16px 18px 18px;gap:18px;align-items:center}
+.status-content .donut-holder{width:min(134px,100cqh,100%);height:auto;aspect-ratio:1;margin:auto;min-width:0;min-height:0}
+.status-content .status-legend{height:min(132px,100%);min-height:0;gap:0;justify-content:space-between}
+.status-content .status-legend>div{height:20px;flex:none;align-items:center}
+.status-content .status-legend dt{line-height:20px}
+.status-content .status-legend dd{align-items:baseline;line-height:20px}

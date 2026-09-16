@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="绿源净水厂一体化运营演示。厂区照片重建模型关联送水机房、泵组与部件，全部数据为演示数据。">
+  <title>绿源净水厂 · 智慧运营中心</title>
+</head>
+<body>
+<div id="viewport">
+  <div id="dashboard" class="dashboard">
+    <header class="masthead" aria-label="绿源净水厂运营中心顶部导航">
+      <div class="masthead-side masthead-left"><div class="brand">
+        <svg class="brand-mark" viewBox="0 0 50 50" aria-hidden="true"><defs><linearGradient id="brandG" x2=".8" y2="1"><stop stop-color="#99ecff"/><stop offset=".5" stop-color="#23baff"/><stop offset="1" stop-color="#0870d3"/></linearGradient></defs><path d="M25 2 35 17 25 31 15 17Z M13 23 23 37 17 46H2Z M37 23 48 46H33L27 37Z" fill="url(#brandG)"/><circle cx="25" cy="39" r="4" fill="#5fdcff"/></svg>
+        <div class="brand-copy"><strong>数字驱动 · 智慧水务</strong><small>LY WATER · DIGITAL TWIN</small></div>
+      </div><nav class="top-nav nav-left" aria-label="场景与数据导航">
+        <button type="button" class="nav-item active" data-nav="overview" aria-pressed="true">综合态势</button>
+        <button type="button" class="nav-item" data-nav="process" aria-pressed="false">工艺流程</button>
+        <button type="button" class="nav-item" data-nav="analytics" aria-pressed="false">数据分析</button>
+      </nav></div>
+      <div class="title-block"><span class="title-detail title-detail-left" aria-hidden="true"></span><h1>绿源净水厂 · 智慧运营中心</h1><span class="title-detail title-detail-right" aria-hidden="true"></span></div>
+      <div class="masthead-side masthead-right"><nav class="top-nav nav-right" aria-label="设备与管理导航">
+        <button type="button" class="nav-item" data-nav="equipment" aria-pressed="false">设备监测</button>
+        <button type="button" class="nav-item" data-nav="alarms" aria-pressed="false">告警中心<span class="nav-badge" id="navAlarmCount">3</span></button>
+        <button type="button" class="nav-item" data-nav="help" aria-pressed="false">系统说明</button>
+      </nav><div class="header-info">
+        <div class="clock-row"><span id="date">2026.09.16</span><time id="clock">10:24:36</time><span class="header-week" id="headerWeek">周三</span></div>
+        <div class="header-status"><span class="status-led"></span><span>模拟数据</span><button type="button" id="simulationToggle" class="icon-small" title="暂停模拟刷新" aria-label="暂停模拟刷新" data-icon="pause"></button></div>
+      </div></div>
+    </header>
+
+    <main class="workspace">
+      <aside class="left-column">
+        <section class="panel metric-panel" aria-labelledby="metricTitle">
+          <header class="panel-heading"><h2 id="metricTitle"><i data-icon="droplets"></i>生产指标</h2><div class="segments compact" id="metricPeriod" aria-label="指标周期"><button class="active" data-period="today" aria-pressed="true">今日</button><button data-period="month" aria-pressed="false">本月</button></div></header>
+          <div class="metric-grid">
+            <article class="metric-card"><div class="metric-icon" data-icon="droplet"></div><div class="metric-copy"><p id="supplyLabel">演示日供水量</p><div class="number"><strong id="supplyValue">62,480</strong><small>m³</small></div><div class="metric-change"><span>↑ 0.7%</span><em>较上期</em></div></div></article>
+            <article class="metric-card"><div class="metric-icon" data-icon="energy"></div><div class="metric-copy"><p id="energyLabel">演示日用电量</p><div class="number"><strong id="energyValue">18,119.2</strong><small>kWh</small></div><div class="metric-change"><span>↑ 0.7%</span><em>较上期</em></div></div></article>
+            <article class="metric-card"><div class="metric-icon" data-icon="waves"></div><div class="metric-copy"><p>出厂水浊度</p><div class="number"><strong>0.16</strong><small>NTU</small></div><div class="metric-change"><span class="muted">模拟监测值</span></div></div></article>
+            <article class="metric-card"><div class="metric-icon" data-icon="leaf"></div><div class="metric-copy"><p>单位供水能耗</p><div class="number"><strong id="intensityValue">0.290</strong><small>kWh/m³</small></div><div class="metric-change"><span>↓ 2.3%</span><em>较上期</em></div></div></article>
+          </div>
+        </section>
+
+        <section class="panel plant-panel" aria-labelledby="plantTitle">
+          <header class="panel-heading"><h2 id="plantTitle"><i data-icon="plant"></i>厂区总览</h2><button class="text-button" id="plantExpand">进入厂区 <i data-icon="chevron"></i></button></header>
+          <div class="plant-content"><button class="plant-image" id="plantPreview" aria-label="返回全厂三维总览"><img src="/assets/factory-campus-preview.png" alt="按照片重建的绿源净水厂三维鸟瞰图"><span class="mini-label"><b class="status-led"></b>全厂三维</span><span class="mini-corner">CAMPUS / 08</span></button><dl class="asset-list"><div><dt><i data-icon="pump"></i>功能分区</dt><dd>8</dd></div><div><dt><i data-icon="pool"></i>矩形池组</dt><dd>2</dd></div><div><dt><i data-icon="filter"></i>立式储罐</dt><dd>4</dd></div><div><dt><i data-icon="pool"></i>送水机组</dt><dd>4</dd></div><div><dt><i data-icon="flask"></i>综合办公楼</dt><dd>1</dd></div><div><dt><i data-icon="energy"></i>主入口</dt><dd>1</dd></div></dl></div>
+        </section>
+
+        <section class="panel status-panel" aria-labelledby="statusTitle">
+          <header class="panel-heading"><h2 id="statusTitle"><i data-icon="activity"></i>设备状态分布</h2><span class="panel-note">全厂口径</span></header>
+          <div class="status-content"><div class="donut-holder"><svg id="statusDonut" viewBox="0 0 160 160" role="img" aria-label="全厂186台设备的状态分布"></svg><div class="donut-center"><strong>186</strong><span>设备总数</span></div></div><dl class="status-legend" id="statusLegend"></dl></div>
+        </section>
+
+        <section class="panel alert-panel" aria-labelledby="alertTitle">
+          <header class="panel-heading"><h2 id="alertTitle"><i data-icon="bell"></i>告警速览<span class="count-badge" id="alertCount">3</span></h2><button class="text-button" id="viewAlarms">查看全部 <i data-icon="chevron"></i></button></header>
+          <div class="alarm-table-wrap"><table class="alarm-table"><thead><tr><th>时间</th><th>设备</th><th>告警内容</th><th>级别</th></tr></thead><tbody id="alarmTable"></tbody></table></div>
+        </section>
+      </aside>
+
+      <div class="center-column">
+        <section class="panel scene-panel" aria-label="送水机房场景与设备选择">
+          <div class="scene-kpis"><div class="scene-kpi"><span class="kpi-icon" data-icon="inflow"></span><div><p>泵房进水流量</p><strong id="inletFlow">948</strong><small>m³/h</small></div></div><div class="scene-kpi"><span class="kpi-icon" data-icon="outflow"></span><div><p>泵房出水流量</p><strong id="outletFlow">930</strong><small>m³/h</small></div></div><div class="scene-kpi"><span class="kpi-icon" data-icon="gauge"></span><div><p>出水母管压力</p><strong id="headerPressure">0.42</strong><small>MPa</small></div></div><div class="scene-kpi"><span class="kpi-icon" data-icon="pump"></span><div><p>当前运行机组</p><strong id="runningPumps">3<span class="denominator"> / 4</span></strong><small>台</small></div></div></div>
+          <div id="sceneViewport" class="scene-viewport">
+            <div class="scene-graphic" id="sceneGraphic">
+              <img class="scene-art" src="/assets/v2-scene.webp" alt="四台水泵及管道构成的泵房静态概念场景">
+              <div class="scene-art-vignette"></div>
+              <div class="scene-haze"></div>
+              <div class="device-hotspots" id="deviceHotspots"></div>
+            </div>
+            <div id="planView" class="alternative-view" hidden></div>
+            <div id="processView" class="alternative-view" hidden></div>
+            <!-- 三维显示区域：JS 会在这里挂载场景，并插入 renderer 创建的 canvas。 -->
+            <!-- 此 div 只提供位置；加载 GLB 和每帧渲染的代码在 src/pump-scene.js。 -->
+            <div id="modelMount" class="model-mount" hidden></div>
+            <div class="scene-caption"><span class="scene-caption-mark"></span><div><h2>送水机房</h2><small id="sceneViewCaption">PUMP STATION / 场景效果预览</small></div><span class="scene-demo-badge">静态素材</span></div>
+            <div class="compass" aria-hidden="true"><span>N</span><svg viewBox="0 0 32 32"><path d="M16 4 23 26 16 21 9 26Z" fill="#3abaff"/><path d="M16 4V21L9 26Z" fill="#b3edff"/></svg></div>
+            <div class="scene-tools" aria-label="场景工具"><button id="toggleLabels" class="scene-tool active" title="显示或隐藏设备标签" aria-label="显示或隐藏设备标签" aria-pressed="true"><i data-icon="tag"></i><span>标签</span></button><span class="tool-divider"></span><button id="zoomIn" class="scene-tool" title="放大场景" aria-label="放大场景"><i data-icon="plus"></i></button><button id="zoomOut" class="scene-tool" title="缩小场景" aria-label="缩小场景"><i data-icon="minus"></i></button><button id="resetView" class="scene-tool" title="复位视图" aria-label="复位视图"><i data-icon="reset"></i><span>复位</span></button><span class="tool-divider"></span><button id="fullscreenButton" class="scene-tool" title="切换全屏" aria-label="切换全屏"><i data-icon="expand"></i></button></div>
+            <div class="scene-footnote"><span class="tiny-cross">+</span>点击设备标签，查看对应数据</div>
+            <nav class="scene-tabs" aria-label="场景展示方式"><button class="active" data-view="scene" aria-pressed="true"><i data-icon="cube"></i><span id="sceneTabLabel">场景预览</span></button><button data-view="plan" aria-pressed="false"><i data-icon="plan"></i>平面布置</button><button data-view="process" aria-pressed="false"><i data-icon="network"></i>工艺示意</button></nav>
+          </div>
+        </section>
+        <div class="chart-panels"><section class="panel flow-panel" aria-labelledby="flowTitle"><header class="panel-heading"><h2 id="flowTitle"><i data-icon="waves"></i>流量趋势</h2><div class="chart-legend"><span><b class="legend-swatch blue"></b>进水</span><span><b class="legend-swatch green"></b>出水</span></div></header><div class="chart-wrap" id="flowChartWrap"><svg id="flowChart" viewBox="0 0 500 162" role="img" aria-label="泵房进出水流量模拟趋势"></svg><div class="chart-tooltip" id="flowTooltip" hidden></div></div></section><section class="panel energy-panel" aria-labelledby="energyTitle"><header class="panel-heading"><h2 id="energyTitle"><i data-icon="energy"></i>全厂能耗</h2><div class="segments compact" id="energyPeriod" aria-label="能耗统计周期"><button class="active" data-period="day" aria-pressed="true">日</button><button data-period="month" aria-pressed="false">月</button><button data-period="year" aria-pressed="false">年</button></div></header><div class="chart-wrap" id="energyChartWrap"><svg id="energyChart" viewBox="0 0 500 162" role="img" aria-label="全厂能耗模拟统计"></svg><div class="chart-tooltip" id="energyTooltip" hidden></div></div></section></div>
+      </div>
+
+      <aside class="right-column">
+        <section class="panel device-panel" aria-labelledby="deviceTitle"><header class="panel-heading"><h2 id="deviceTitle"><i data-icon="pump"></i>设备详情</h2><div class="device-selection"><button type="button" id="devicePickerTrigger" class="device-picker-trigger" role="combobox" aria-label="选择水泵" aria-haspopup="listbox" aria-controls="deviceOptions" aria-expanded="false"></button><select id="deviceSelect" aria-label="选择水泵" hidden tabindex="-1"><option value="P-01">1号水泵</option><option value="P-02">2号水泵</option><option value="P-03">3号水泵</option><option value="P-04">4号水泵</option></select><span id="deviceStatus" class="status-badge running"><b></b>运行中</span></div></header><div class="device-hero"><div class="device-illustration"><div class="device-platform"></div><img src="/assets/v2-pump.png" alt="蓝色卧式离心泵独立素材"><span>ILLUSTRATIVE ASSET</span></div><div class="device-info"><div class="device-eyebrow" id="deviceCode">PUMP / P-01</div><h3 id="deviceName">1号水泵</h3><p class="device-type">卧式离心泵 · 示意型号</p><dl><div><dt>设备编号</dt><dd id="deviceId">P-01</dd></div><div><dt>安装区域</dt><dd>送水机房</dd></div><div><dt>数据来源</dt><dd class="cyan-text">模拟数据</dd></div><div><dt>最近更新</dt><dd id="deviceUpdated">10:24:36</dd></div></dl></div></div><div class="device-actions"><button class="outline-button" id="deviceArchive"><i data-icon="file"></i>设备档案<i data-icon="arrow"></i></button><button class="outline-button primary" id="deviceSimulation"><i data-icon="sliders"></i>状态演示<i data-icon="arrow"></i></button></div></section>
+
+        <section class="panel live-panel" aria-label="选中设备的模拟数据"><div class="data-tabs" role="tablist" aria-label="设备数据"><button class="active" role="tab" id="tab-live" aria-selected="true" aria-controls="liveData" data-tab="live">实时数据</button><button role="tab" id="tab-trend" aria-selected="false" aria-controls="deviceTrend" data-tab="trend" tabindex="-1">运行曲线</button><button role="tab" id="tab-history" aria-selected="false" aria-controls="deviceHistory" data-tab="history" tabindex="-1">维护记录</button></div><div id="liveData" class="live-data-grid" role="tabpanel" aria-labelledby="tab-live"></div><div id="deviceTrend" class="device-trend" role="tabpanel" aria-labelledby="tab-trend" hidden></div><div id="deviceHistory" class="device-history" role="tabpanel" aria-labelledby="tab-history" hidden></div></section>
+
+        <section class="panel water-panel" aria-labelledby="waterTitle"><header class="panel-heading"><h2 id="waterTitle"><i data-icon="flask"></i>水质监测</h2><span class="small-pill">出厂水 <i data-icon="droplet"></i></span></header><div class="water-grid" id="waterGrid"></div></section>
+      </aside>
+    </main>
+
+    <footer class="footer"><svg viewBox="0 0 1888 28" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14 12 2H580L603 10H1285L1308 2H1876L1888 14" fill="none" stroke="#0875b3"/><path d="M615 12H723M1165 12H1273" stroke="#064471"/></svg><span><b class="footer-led"></b>演示项目<span class="footer-divider">/</span>模拟数据<span class="footer-divider">/</span><span id="sceneSourceLabel">静态场景素材</span></span><span class="footer-brand">LY WATER <b>·</b> DIGITAL OPERATIONS</span><span class="footer-right">DIGITAL WATER OPERATIONS<button id="helpButton" class="icon-small" aria-label="查看操作说明" title="操作说明" data-icon="help"></button></span></footer>
+    <div id="deviceMenu" class="device-menu" hidden><div class="device-menu-heading"><span>送水机房</span><small>4 台设备</small></div><div id="deviceOptions" role="listbox" aria-label="水泵设备"></div></div>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <div id="modalBackdrop" class="modal-backdrop" hidden><section id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><header class="modal-header"><div><small>LY WATER / DEMO CONSOLE</small><h2 id="modalTitle">设备档案</h2></div><button id="closeModal" class="close-button" aria-label="关闭窗口" data-icon="close"></button></header><div id="modalContent" class="modal-content"></div></section></div>
+  </div>
+</div>
+  <link rel="icon" href="data:,">
+  <!-- 开发版从这个入口启动；独立 HTML 打包时会将 JS、CSS、模型数据全部内嵌。 -->
+  <script type="module" src="/src/dashboard.js"></script>
+</body>
+</html>

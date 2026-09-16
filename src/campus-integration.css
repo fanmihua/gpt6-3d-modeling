@@ -1,0 +1,78 @@
+.campus-integration { isolation:isolate; }
+.campus-model-layer,.campus-pump-layer { position:absolute;inset:0; }
+.campus-integration [hidden] { display:none!important; }
+.campus-area-panel,.campus-area-data { display:none; }
+#dashboard[data-scene-scope=campus] .device-panel > .panel-heading,
+#dashboard[data-scene-scope=campus] .device-panel > .device-hero,
+#dashboard[data-scene-scope=campus] .device-panel > .device-actions,
+#dashboard[data-scene-scope=campus] .live-panel > .data-tabs,
+#dashboard[data-scene-scope=campus] .live-panel > #liveData,
+#dashboard[data-scene-scope=campus] .live-panel > #deviceTrend,
+#dashboard[data-scene-scope=campus] .live-panel > #deviceHistory { display:none!important; }
+#dashboard[data-scene-scope=campus] .campus-area-panel { display:flex;flex:1;min-height:0;flex-direction:column; }
+#dashboard[data-scene-scope=campus] .campus-area-data { display:flex;flex-direction:column;min-height:0;flex:1;height:100%; }
+.campus-area-panel .panel-heading { flex:0 0 auto; }
+.campus-zone-picker { max-width:150px;min-width:104px;height:28px;padding:3px 23px 3px 9px;border:1px solid #235571;border-radius:2px;background:#07283d;color:#b6dce9;font:11px var(--sans,sans-serif);outline:none; }
+.campus-zone-picker:focus-visible { border-color:#53b9de; }
+.campus-zone-body { padding:18px 15px 10px;flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0; }
+.campus-zone-heading { display:flex;align-items:center;justify-content:space-between;gap:8px; }
+.campus-zone-heading h3 { margin:7px 0 0;font-size:21px;color:#d7eef6;line-height:1.4;font-weight:600; }
+.campus-zone-description { color:#6f98ac;line-height:1.8;font-size:11px;margin:15px 0 16px; }
+.campus-zone-facts { display:grid;grid-template-columns:1fr 1fr;gap:14px 15px;margin:0; }
+.campus-zone-facts div { display:flex;flex-direction:column;gap:5px; }
+.campus-zone-facts dt { color:#5f91aa;font-size:10px; }
+.campus-zone-facts dd { color:#a9d2e2;font-size:12px;margin:0; }
+.campus-zone-facts dd small { color:#729aaf;font-size:10px; }
+.campus-zone-actions { display:flex;align-items:center;gap:9px;margin-top:auto;padding:12px 14px 16px; }
+.campus-zone-actions .outline-button { flex:1;justify-content:space-between; }
+.campus-zone-kind { flex:1;text-align:center;font-size:10px;color:#547e96; }
+.campus-area-data-heading { height:40px;display:flex;align-items:center;justify-content:space-between;margin:0 14px;border-bottom:1px solid #15405a;color:#b7d7e6;font-size:12px;flex:0 0 auto; }
+.campus-area-data-heading span { font:10px var(--mono);color:#5d8fa9; }
+.campus-area-data .live-data-grid { flex:1;min-height:0;height:auto; }
+.campus-scope-bar [hidden] { display:none!important; }
+.campus-scope-bar { position:absolute;left:16px;bottom:108px;z-index:7;display:flex;align-items:center;gap:9px;pointer-events:auto; }
+.campus-scope-bar button { border:1px solid #24536b;background:#061f30e8;color:#9bc3d8;min-height:30px;padding:5px 10px;font-size:10px;white-space:nowrap; }
+.campus-mode-buttons { display:flex;gap:0; }
+.campus-mode-buttons button+button { border-left:0; }
+.campus-mode-buttons button[aria-pressed=true] { background:#0b3d55;color:#c5effc; }
+.campus-scope-bar .campus-enter-button { background:#0b3c53ef;border-color:#2d7d9b;color:#bceaf7; }
+.campus-scope-bar button:hover,.campus-scope-bar button:focus-visible { border-color:#62bedb;color:#e2f7ff;outline:none; }
+#dashboard[data-scene-scope=campus] .scene-caption h2 { font-size:17px; }
+#dashboard[data-scene-scope=campus] .scene-panel .compass { display:none; }
+@media(max-width:1460px){.campus-zone-body{padding:14px 13px 8px}.campus-zone-heading h3{font-size:18px}.campus-zone-description{font-size:10px;margin:11px 0 13px}.campus-zone-facts{gap:10px 12px}.campus-zone-picker{max-width:124px;font-size:10px}.campus-scope-bar{left:12px;bottom:108px;gap:6px}.campus-scope-bar button{padding:5px 8px;font-size:9px}}
+/* 区域卡片仅保留决策所需信息，来源说明放系统说明。 */
+.campus-zone-body{padding:22px 18px 16px;justify-content:flex-start;gap:0}
+.campus-zone-heading{align-items:center}
+.campus-zone-heading h3{margin-top:8px;font-size:23px;font-weight:500;line-height:1.3;letter-spacing:.5px}
+.campus-zone-heading .device-eyebrow{margin-bottom:0;font-size:10px}
+.campus-zone-heading .status-badge{font-size:10px;padding:5px 8px;height:auto;margin-top:15px}
+.campus-zone-description{font-size:11px;line-height:1.75;margin:18px 0 20px;color:#89aabc}
+.campus-zone-summary{display:flex;align-items:baseline;gap:24px;padding-top:14px;border-top:1px solid #24506a55;color:#7b9fb4;font-size:11px}
+.campus-zone-summary>span{display:flex;align-items:baseline;gap:7px}
+.campus-zone-summary strong{font:400 19px var(--mono);color:#c6e0ee}
+.campus-zone-summary small{font-size:10px;color:#6f94aa}
+.campus-zone-actions{padding:10px 18px 20px;gap:12px;margin-top:auto}
+.campus-zone-actions .outline-button{height:35px;justify-content:center;padding:7px 10px;font-size:11px}
+.campus-zone-actions .outline-button.primary{justify-content:space-between;padding-left:16px;padding-right:14px}
+.campus-zone-trigger{min-width:116px!important;max-width:145px;height:28px;font-size:11px!important;gap:8px}
+.campus-zone-trigger .picker-name{white-space:nowrap}
+.campus-zone-menu{width:248px;z-index:65;background:#061e31;box-shadow:0 12px 30px #0007;border-color:#2c6884}
+.campus-zone-menu .device-menu-heading{padding:10px 12px;font-size:11px}
+.campus-zone-menu .device-option{min-height:42px;padding:8px 12px;gap:10px}
+.campus-option-code{flex:none;width:28px;height:28px;display:grid;place-items:center;background:#0d354c;color:#68a8c2;font:10px var(--mono);border:1px solid #23526a77;border-radius:2px}
+.campus-zone-menu .device-option-copy strong{font-size:12px;font-weight:400}
+.campus-zone-menu .device-option-copy small{font-size:9px;margin-top:3px}
+.campus-zone-menu .device-option-state{margin-left:auto;min-width:0}
+.campus-zone-menu .device-option-check{width:12px}
+@media(max-width:1460px){.campus-zone-body{padding:18px 14px 14px}.campus-zone-heading h3{font-size:21px}.campus-zone-description{margin:15px 0 17px;font-size:10px}.campus-zone-summary{gap:20px;font-size:10px;padding-top:13px}.campus-zone-summary strong{font-size:17px}.campus-zone-actions{padding:10px 14px 17px;gap:10px}.campus-zone-actions .outline-button{font-size:10px}.campus-zone-trigger{min-width:112px!important;max-width:130px;font-size:10px!important}.campus-zone-heading .status-badge{font-size:9px;padding:4px 6px}}
+.campus-zone-menu .device-option{height:48px}
+
+
+.scene-tabs button[hidden],.top-nav button[hidden]{display:none!important}
+.scene-tools button:disabled{opacity:.3;cursor:default}
+
+/* 下钻时返回入口移到顶栏，避开底部拆解、测点和告警说明。 */
+.scene-panel.is-inspecting .campus-scope-bar{top:18px;right:90px;bottom:auto;left:auto}
+.scene-panel.is-inspecting .campus-scope-bar button{min-height:28px}
+.scene-panel.is-inspecting .inspection-breadcrumb{max-width:calc(100% - 175px)}
+@media(max-width:1460px){.scene-panel.is-inspecting .campus-scope-bar{top:17px;right:12px}.scene-panel.is-inspecting .inspection-breadcrumb{max-width:calc(100% - 104px)}}
