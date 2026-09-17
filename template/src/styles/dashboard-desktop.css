@@ -101,7 +101,7 @@ html,body{min-width:1280px;min-height:800px;overflow:auto}
 .clock-row>span{font-size:10px}
 .header-status{margin-top:3px;height:17px;font-size:9px}
 .title-block{position:relative;isolation:isolate;height:79px;margin:0;display:flex;align-items:center;justify-content:center;padding:0 28px 5px;min-width:0}
-.title-block:before{content:'';position:absolute;inset:-1px -105px -5px;z-index:-2;background:url('/assets/masthead-generated.png') center -74px / 100% 280px no-repeat;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.title-block:before{content:'';position:absolute;inset:-1px -105px -5px;z-index:-2;background:url('/assets/masthead-generated.webp') center -74px / 100% 280px no-repeat;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .title-block:after{content:none}
 .title-block h1{font-size:clamp(23px,1.57vw,30px);font-weight:600;line-height:40px;letter-spacing:clamp(1px,.16vw,3px);text-shadow:0 1px 0 #4293c655,0 0 18px #5cb8ed25;color:#e7f5ff;white-space:nowrap}
 .title-detail{display:none}

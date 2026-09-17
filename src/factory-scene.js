@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { loadCompressedModel } from './model-loader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import './factory-scene.css';
 
-const MODEL_URL = './models/factory-campus.glb';
+const MODEL_URL = './models/factory-campus-web.glb.gz';
 const MANIFEST_URL = './models/factory-campus.json';
 const VIEW_OFFSETS = {
   // 等轴测鸟瞰：水平 45°、俯角约 35.264°，底板两组边线保持对称。
@@ -534,7 +534,7 @@ export async function createFactoryScene({ container, zones = [], onSelect, onRe
     scene.add(fillLight);
 
     const [gltf, json] = await Promise.all([
-      new GLTFLoader().loadAsync(MODEL_URL, progress => {
+      loadCompressedModel(MODEL_URL, progress => {
         if (progress.total > 0) status.querySelector('span:last-child').textContent = `载入建筑、道路与工艺设施 · ${Math.round(progress.loaded / progress.total * 100)}%`;
       }),
       fetch(MANIFEST_URL).then(response => {

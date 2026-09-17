@@ -4,7 +4,7 @@ import { relationshipDiagram, interfaceDiagram, translationDiagram, executionDia
 
 export function createPreparation(image, templateUrl) {
   return `<div id="template" class="template-preparation"><div class="preview-heading"><h2>大屏模板</h2><a class="module-link" href="${templateUrl}" target="_blank" rel="noopener">打开大屏模板 ↗</a></div><div class="practice-start">
-    <figure class="course-visual"><button type="button" data-image="empty-template.png" aria-label="放大大屏模板"><img src="${image('empty-template.png')}" alt="中央模型区留空的大屏模板" loading="lazy" decoding="async"></button></figure>
+    <figure class="course-visual"><button type="button" data-image="empty-template.png" aria-label="放大大屏模板"><img data-src="${image('empty-template.png')}" alt="中央模型区留空的大屏模板" loading="lazy" decoding="async"></button></figure>
   </div></div>
   <section id="warmup" aria-labelledby="title-warmup"><div class="section-heading"><div><h2 id="title-warmup">只用一句话建模</h2><p class="section-lead">不提供图纸或图片，先看口述需求能生成什么。</p></div></div>
     <div class="description-card"><small>口述需求</small><p>做一个泵房，四台蓝色离心泵并排放置，两侧连接总管。</p></div>
@@ -13,7 +13,7 @@ export function createPreparation(image, templateUrl) {
 }
 
 export function createCourse(image) {
-  const pic=(file,caption,showCaption=true)=>`<figure class="course-visual"><button type="button" data-image="${file}" aria-label="放大：${caption}"><img src="${image(file)}" alt="${caption}" loading="lazy" decoding="async"></button>${showCaption?`<figcaption>${caption}</figcaption>`:''}</figure>`;
+  const pic=(file,caption,showCaption=true)=>`<figure class="course-visual"><button type="button" data-image="${file}" aria-label="放大：${caption}"><img data-src="${image(file)}" alt="${caption}" loading="lazy" decoding="async"></button>${showCaption?`<figcaption>${caption}</figcaption>`:''}</figure>`;
   const points=items=>`<div class="course-points">${items.map(([title,text])=>`<div><h4>${title}</h4>${text?`<p>${text}</p>`:''}</div>`).join('')}</div>`;
   const split=(visual,text)=>`<div class="course-split">${visual}<div>${text}</div></div>`;
   const chain=items=>`<ol class="course-chain">${items.map(([title,text])=>`<li><strong>${title}</strong><span>${text}</span></li>`).join('')}</ol>`;
@@ -64,7 +64,7 @@ export function createCourse(image) {
         controls)+
       block('AI 怎样看图建模','',
       explorer('photo-analysis','照片到模型的分析过程',[
-        {label:'识别对象',html:split(`<figure class="course-visual"><div class="photo-regions"><img src="${image('factory-photo.png')}" alt="工厂照片中的建筑、水池、储罐与入口" loading="lazy"><span style="left:30%;top:43%">建筑</span><span style="left:72%;top:40%">水池</span><span style="left:44%;top:24%">储罐</span><span style="left:62%;top:73%">入口</span></div><figcaption>可见对象的识别示意</figcaption></figure>`,points([['结合你的要求','保留厂区，忽略远山、河流与天空。']]))},
+        {label:'识别对象',html:split(`<figure class="course-visual"><div class="photo-regions"><img data-src="${image('factory-photo.png')}" alt="工厂照片中的建筑、水池、储罐与入口" loading="lazy"><span style="left:30%;top:43%">建筑</span><span style="left:72%;top:40%">水池</span><span style="left:44%;top:24%">储罐</span><span style="left:62%;top:73%">入口</span></div><figcaption>可见对象的识别示意</figcaption></figure>`,points([['结合你的要求','保留厂区，忽略远山、河流与天空。']]))},
         {label:'理解关系',html:split(pic('factory-photo.png','从图像观察前后、相邻与连通关系'),points([['前后与相邻','办公楼在前，水池在右后方，罐区在更后方。'],['道路与入口','把门卫、停车区和建筑之间的路线连起来。'],['比例与遮挡','近大远小影响观感，背面与内部需要假设。']]))},
         {label:'写成建模规则',html:`<div class="analysis-mapping"><div><span>照片中的对象</span><span>脚本采用的建模方式</span></div><div><strong>建筑</strong><p>楼体与屋顶的体块，再补门窗。</p></div><div><strong>储罐、水池</strong><p>圆柱、池壁、水面与栏杆。</p></div><div><strong>道路、树木</strong><p>道路路线与宽度，树干和树冠的组合。</p></div><div><strong>草地、路面</strong><p>大块几何表面，配合材质与贴图。</p></div></div><p class="source-line">用于说明本案例的工作方式，不代表可以观察到 AI 内部的全部推理过程。</p>`},
         {label:'生成效果',html:split(pic('factory-model.png','厂区模型 · 图片推演'),points([['从平面参考到三维场景','模型有空间结构，之后可以换角度观察。'],['结果的性质','照片推演与演示建模，非实测扫描。']]))},

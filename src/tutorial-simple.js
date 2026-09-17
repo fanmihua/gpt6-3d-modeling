@@ -9,7 +9,7 @@ import { appendCodeNotes } from './tutorial-code-notes.js';
 import { initializeExplorers } from './tutorial-widgets.js';
 import { initializeNarrator, narrationTitles } from './tutorial-narrator.js';
 
-const image = name => window.__COURSE_IMAGES__?.[name] || `./tutorial/${name}`;
+const image = name => window.__COURSE_IMAGES__?.[name] || `./tutorial/${name.replace(/\.(png|jpg)$/, '.webp')}`;
 const course=createCourse(image);
 const root=document.querySelector('#tutorial-root');
 const phaseNames={practice:'先实操 · 两类建模案例',theory:'再回看 · 解释模型与执行原理'};
@@ -41,6 +41,13 @@ previewVideo.muted=true;
 if(matchMedia('(prefers-reduced-motion: reduce)').matches){previewVideo.autoplay=false;previewVideo.pause();}
 appendCodeNotes(root);
 initializeExplorers();
+// Only request illustrations when their panel is near the viewport.
+const pendingImages=[...root.querySelectorAll('img[data-src]')];
+const revealImage=img=>{img.src=img.dataset.src;delete img.dataset.src;};
+if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){revealImage(entry.target);observer.unobserve(entry.target);}},{rootMargin:'300px'});
+  pendingImages.forEach(img=>observer.observe(img));
+}else pendingImages.forEach(revealImage);
 function navigate(id){
   if(location.hash!==`#${id}`)location.hash=id;
   document.getElementById(id)?.scrollIntoView();

@@ -47,6 +47,8 @@ macOS 默认安装路径示例：
 
 `--background` 表示 Blender 在后台执行，不显示主窗口。脚本通过 `bpy` 创建场景、保存 `.blend`，并导出网页使用的 `.glb` 和设备/区域清单 `.json`。脚本会覆盖仓库内对应的模型输出；修改前可先提交一份 Git 记录。模型也可以直接在 Blender 中打开编辑。
 
+重新导出模型或修改配图后，执行 `npm run optimize:assets` 更新网页压缩资源，再运行测试和构建。原始 GLB 保留供编辑；网页加载 `*-web.glb.gz`，浏览器解压后使用 Meshopt 解码。图片使用 WebP，课件配图按可见区域加载。压缩保留模型部件层级与交互数据。
+
 - **泵房**：`reference/pump_room_demo.dxf` → `blender/build_pump_room.py` → `public/models/pump-room.glb`。
 - **厂区**：`reference/factory-campus-source.png` 为布局参考；`blender/build_factory_campus.py` 中的参数和规则生成厂区。该脚本本身不读取图片做自动识别。
 - **网页**：Three.js 读取 GLB，设置灯光、相机与显示状态；设备层级和零件信息用于下钻、爆炸拆解、透视与关联支路展示。

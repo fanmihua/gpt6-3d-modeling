@@ -2,10 +2,11 @@ import { build } from 'esbuild';
 import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 import vm from 'node:vm';
+import { gunzipSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const mime = { '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.glb':'model/gltf-binary', '.json':'application/json' };
+const mime = { '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.glb':'model/gltf-binary', '.gz':'application/gzip', '.json':'application/json' };
 const models = new Map();
 const assets = new Set();
 async function inlineAssets(text) {
@@ -42,8 +43,9 @@ const result = await build({
   }}],
 });
 // A GLB must not retain external buffers or textures in this offline package.
-for(const [url,bytes] of models) {
-  if(!url.endsWith('.glb'))continue;
+for(const [url,payload] of models) {
+  if(!url.endsWith('.glb')&&!url.endsWith('.glb.gz'))continue;
+  const bytes=url.endsWith('.gz')?gunzipSync(payload):payload;
   const length=bytes.readUInt32LE(12);
   const json=JSON.parse(bytes.subarray(20,20+length).toString('utf8'));
   for(const entry of [...(json.buffers||[]),...(json.images||[])]) {
@@ -65,7 +67,7 @@ const inlineScripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)];
 if(inlineScripts.length!==1)throw Error('Expected one inline script');
 new vm.Script(inlineScripts[0][1]);
 if(/<script\b[^>]+src\s*=/.test(html)||/<link\b[^>]+(?:stylesheet|modulepreload)/.test(html))throw Error('External executable dependency remains');
-if(models.size < 4 || !models.has('./models/factory-campus.glb') || !models.has('./models/pump-room.glb'))throw Error('Both campus and pump-room assets are required');
+if(models.size < 4 || !models.has('./models/factory-campus-web.glb.gz') || !models.has('./models/pump-room-web.glb.gz'))throw Error('Both campus and pump-room assets are required');
 if(html.includes('/src/dashboard.js'))throw Error('Development script entry remains');
 const out=path.join(root,'exports','绿源净水厂-三维运营演示.html');
 await mkdir(path.dirname(out),{recursive:true});

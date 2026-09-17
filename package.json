@@ -16,13 +16,19 @@
     "export:course": "node scripts/build-tutorial.mjs",
     "export:demo": "node scripts/build-standalone.mjs",
     "export:template": "node template/scripts/build-standalone.mjs",
-    "export:all": "npm run export:course && npm run export:demo && npm run export:template"
+    "export:all": "npm run export:course && npm run export:demo && npm run export:template",
+    "optimize:assets": "node scripts/optimize-images.mjs && node scripts/optimize-models.mjs"
   },
   "dependencies": {
     "three": "0.186.0"
   },
   "devDependencies": {
+    "@gltf-transform/core": "^4.5.0",
+    "@gltf-transform/extensions": "^4.5.0",
+    "@gltf-transform/functions": "^4.5.0",
     "esbuild": "0.25.10",
+    "meshoptimizer": "^1.2.0",
+    "sharp": "^0.35.4",
     "vite": "6.4.3"
   }
 }

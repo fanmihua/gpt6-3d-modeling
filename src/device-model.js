@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { loadCompressedModel } from './model-loader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import './device-model.css';
@@ -206,7 +206,7 @@ export function createDeviceModel({ container, onInspect, sourceScene = null }) 
       scene.add(new THREE.HemisphereLight('#c6eaff', '#21394c', 1));
       const key = new THREE.DirectionalLight('#e9f8ff', 3); key.position.set(4, 7, 5); scene.add(key);
       const rim = new THREE.DirectionalLight('#66bfff', 2); rim.position.set(-4, 3, -5); scene.add(rim);
-      source = sourceScene || (await new GLTFLoader().loadAsync('./models/pump-room.glb')).scene;
+      source = sourceScene || (await loadCompressedModel('./models/pump-room-web.glb.gz')).scene;
       if (disposed) { releaseGraphics(); return false; }
       updateDevice(currentDevice || { id: 'P-01', name: '1号水泵', status: 'running' });
       if (!selected) throw new Error('模型中未找到设备');

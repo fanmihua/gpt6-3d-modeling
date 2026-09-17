@@ -2,7 +2,7 @@
 // 再看 animate() 每帧绘制，以及 hit() / select() 怎样把点击传给大屏。
 // GLB 保存建好的资产；这个 JS 才负责它在网页里怎样呈现与响应操作。
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { loadCompressedModel } from './model-loader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { createInspection } from './pump-inspection.js';
@@ -450,7 +450,7 @@ export function createPumpScene() {
         // 3. 并行读取几何资产和本项目的额外设备清单。
         // 开发时 /models/... 对应 public/models/...；单文件版会改成内嵌资产地址。
         const [gltf, metadataResponse] = await Promise.all([
-          new GLTFLoader().loadAsync('./models/pump-room.glb'), fetch('./models/pump-room.json'),
+          loadCompressedModel('./models/pump-room-web.glb.gz'), fetch('./models/pump-room.json'),
         ]);
         if (!metadataResponse.ok) throw new Error('无法加载 CAD 设备映射');
         // GLTFLoader 已把二进制解析成 Three.js 对象树；gltf.scene 是树的根。

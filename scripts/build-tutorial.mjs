@@ -26,13 +26,13 @@ const imageNames = [
   'grass-texture.jpg',
   'road-texture.jpg',
 ];
-const mime = { '.png': 'image/png', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg' };
+const mime = { '.png': 'image/png', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.webp': 'image/webp' };
 
 export async function buildTutorial() {
   const images = {};
   const imageBytes = new Map();
   for (const name of imageNames) {
-    const file = path.join(root, 'public/tutorial', name);
+    const file = path.join(root, 'public/tutorial', name.replace(/\.(png|jpg)$/, '.webp'));
     let bytes;
     try { bytes = await readFile(file); }
     catch { throw new Error(`缺少教程图片：public/tutorial/${name}`); }
@@ -40,7 +40,7 @@ export async function buildTutorial() {
       throw new Error(`教程 SVG 仍包含外部图像引用：${name}`);
     }
     imageBytes.set(name, bytes);
-    images[name] = `data:${mime[path.extname(name)]};base64,${bytes.toString('base64')}`;
+    images[name] = `data:${mime[path.extname(file)]};base64,${bytes.toString('base64')}`;
   }
 
   const result = await build({
