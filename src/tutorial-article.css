@@ -22,3 +22,16 @@ html,body{height:auto;overflow:visible}#tutorial-root{height:auto;display:block}
 .practice-scenarios h3{font-size:20px;font-weight:500;margin:0 0 8px}
 .practice-scenarios p{color:#777;font-size:15px;line-height:1.7;margin:0}
 @media(max-width:640px){.practice-scenarios{grid-template-columns:1fr;gap:20px}}
+
+/* Preview and related actions stay with their content. */
+.site-header .header-title{font-size:26px;font-weight:650;line-height:1.3;margin:0;letter-spacing:-.03em}
+.site-header .author{width:auto;flex:none;margin-left:auto;gap:10px}
+.site-header .author strong{display:block}
+.course-preview{padding:32px 0 38px}
+.preview-heading{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px}
+.preview-heading h2{font-size:24px;font-weight:500;line-height:1.5;margin:0}
+.preview-video{display:block;width:100%;aspect-ratio:3616/2160;object-fit:contain;background:#07141d}
+.module-link{display:inline-flex;align-items:center;padding:8px 13px;border:1px solid #dedede;font-size:12px;white-space:nowrap}
+.module-link:hover{background:#f3f3f1;border-color:#999}
+@media(max-width:700px){.site-header .header-title{font-size:20px}.site-header .author img{width:32px;height:32px}.site-header .author strong{font-size:12px}.course-preview{padding-top:26px}.preview-heading{flex-wrap:wrap;gap:12px}.preview-heading h2{font-size:22px}.preview-heading .course-links{flex-wrap:wrap}.site-header .author{gap:7px}}
+@media(max-width:380px){.site-header .header-title{font-size:17px}.site-header .author strong{font-size:11px}}

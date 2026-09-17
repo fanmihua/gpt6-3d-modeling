@@ -2,8 +2,8 @@ import { courseOrder } from './tutorial-order.js';
 import { explorer } from './tutorial-widgets.js';
 import { relationshipDiagram, interfaceDiagram, translationDiagram, executionDiagram } from './tutorial-diagrams.js';
 
-export function createPreparation(image) {
-  return `<div id="template" class="template-preparation"><h2>大屏模板</h2><div class="practice-start">
+export function createPreparation(image, templateUrl) {
+  return `<div id="template" class="template-preparation"><div class="preview-heading"><h2>大屏模板</h2><a class="module-link" href="${templateUrl}" target="_blank" rel="noopener">打开大屏模板 ↗</a></div><div class="practice-start">
     <figure class="course-visual"><button type="button" data-image="empty-template.png" aria-label="放大大屏模板"><img src="${image('empty-template.png')}" alt="中央模型区留空的大屏模板" loading="lazy" decoding="async"></button></figure>
   </div></div>
   <section id="warmup" aria-labelledby="title-warmup"><div class="section-heading"><div><h2 id="title-warmup">只用一句话建模</h2><p class="section-lead">不提供图纸或图片，先看口述需求能生成什么。</p></div></div>

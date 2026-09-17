@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const imageNames = [
   'avatar.png',
+  'preview-pump-poster.jpg',
   'dashboard.png',
   'empty-template.png',
   'exploded.png',
@@ -73,7 +74,8 @@ export async function buildTutorial() {
   };
   const javascript = inlineImagePaths(entry.text);
   const css = inlineImagePaths(result.outputFiles.filter((file) => file.path.endsWith('.css')).map((file) => file.text).join('\n'));
-  const bootstrap = `window.__COURSE_IMAGES__=Object.freeze(${JSON.stringify(images)});`;
+  const video = await readFile(path.join(root, 'public/tutorial/preview-pump.mp4'));
+  const bootstrap = `window.__COURSE_IMAGES__=Object.freeze(${JSON.stringify(images)});window.__COURSE_VIDEO__=${JSON.stringify('data:video/mp4;base64,' + video.toString('base64'))};`;
   const script = (bootstrap + '\n' + javascript).replace(/<\/script/gi, '<\\/script');
   new vm.Script(script, { filename: 'tutorial-inline.js' });
 
@@ -92,7 +94,7 @@ export async function buildTutorial() {
   const filename = path.join(root, 'exports/GPT6 3D建模测评.html');
   await mkdir(path.dirname(filename), { recursive: true });
   await writeFile(filename, html, 'utf8');
-  const report = { output: filename, bytes: (await stat(filename)).size, images: imageNames, offlineImages: true };
+  const report = { output: filename, bytes: (await stat(filename)).size, images: imageNames, offlineImages: true, offlineVideo: true, videoBytes: video.length };
   console.log(JSON.stringify(report, null, 2));
   return report;
 }

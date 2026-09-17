@@ -14,10 +14,10 @@ const course=createCourse(image);
 const root=document.querySelector('#tutorial-root');
 const phaseNames={practice:'先实操 · 两类建模案例',theory:'再回看 · 解释模型与执行原理'};
 root.innerHTML=`<a class="skip-link" href="#main">跳到正文</a>
-<header class="site-header"><a class="author" href="#top" aria-label="范米花儿，回到开头"><img src="${image('avatar.png')}" alt="范米花儿的头像" width="42" height="42"><strong>范米花儿</strong></a><span class="header-course">GPT6 3D建模测评</span><nav class="course-links" aria-label="项目入口"><a href="${courseLinks.preview}" target="_blank" rel="noopener">效果预览 <span aria-hidden="true">↗</span></a><a href="${courseLinks.repository}" target="_blank" rel="noopener">GitHub 仓库 <span aria-hidden="true">↗</span></a><a href="${courseLinks.template}" target="_blank" rel="noopener">大屏模板 <span aria-hidden="true">↗</span></a></nav></header>
+<header class="site-header"><h1 class="header-title"><a href="#top">GPT6 3D建模测评</a></h1><a class="author" href="#top" aria-label="范米花儿，回到开头"><img src="${image('avatar.png')}" alt="范米花儿的头像" width="42" height="42"><strong>范米花儿</strong></a></header>
 <aside class="contents"><nav aria-label="内容目录"></nav></aside>
-<main id="main"><div id="top"></div><div class="intro"><p class="eyebrow">AI × Blender × Web</p><h1>从 AI 指令到三维模型</h1><p class="intro-lead">先做泵房与厂区，再回看 AI 如何配合 Blender 建模。</p></div>
-${createPreparation(image)}
+<main id="main"><div id="top"></div><div class="course-preview" id="preview"><div class="preview-heading"><h2>效果预览</h2><nav class="course-links" aria-label="效果与源码"><a href="${courseLinks.preview}" target="_blank" rel="noopener">交互预览 <span aria-hidden="true">↗</span></a><a href="${courseLinks.repository}" target="_blank" rel="noopener">GitHub 仓库 <span aria-hidden="true">↗</span></a></nav></div><video class="preview-video" src="${window.__COURSE_VIDEO__ || './tutorial/preview-pump.mp4'}" poster="${image('preview-pump-poster.jpg')}" autoplay muted loop playsinline controls preload="metadata" aria-label="厂区与泵房效果预览"></video></div>
+${createPreparation(image, courseLinks.template)}
 ${course.map((item,i)=>`<section id="${item.id}" aria-labelledby="title-${item.id}"><div class="section-heading"><span class="section-number">${String(i+1).padStart(2,'0')}</span><div><h2 id="title-${item.id}">${item.title}</h2>${item.lead?`<p class="section-lead">${item.lead}</p>`:''}</div></div>${item.body}${item.takeaway?`<div class="section-close"><p>${item.takeaway}</p></div>`:''}</section>`).join('')}
 <footer class="page-footer"><span>范米花儿 · GPT6 3D建模测评</span><a href="#top">回到开头 ↑</a></footer></main>
 <dialog class="image-dialog" aria-label="查看案例图片"><button class="close-image" type="button" aria-label="关闭大图">×</button><img alt=""><p></p></dialog>`;
@@ -36,6 +36,9 @@ const menu=course.map((item,i)=>{
   return `${group}<div class="nav-chapter"><a class="chapter-link" href="#${item.id}"><span>${String(i+1).padStart(2,'0')}</span>${item.nav}</a><ul class="subnav">${children}</ul></div>`;
 }).join('');
 root.querySelector('.contents nav').innerHTML=`<div class="nav-chapter"><a class="chapter-link" href="#warmup">前置实操 · 口述需求</a></div>${menu}`;
+const previewVideo=root.querySelector('.preview-video');
+previewVideo.muted=true;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){previewVideo.autoplay=false;previewVideo.pause();}
 appendCodeNotes(root);
 initializeExplorers();
 function navigate(id){
@@ -77,7 +80,7 @@ root.addEventListener('click',event=>{
   const button=event.target.closest('[data-image]');if(!button)return;
   lastImage=button;dialog.querySelector('img').src=image(button.dataset.image);
   dialog.querySelector('img').alt=button.querySelector('img').alt;
-  dialog.querySelector('p').textContent=button.closest('figure').querySelector('figcaption').textContent;dialog.showModal();
+  dialog.querySelector('p').textContent=button.closest('figure').querySelector('figcaption')?.textContent || button.querySelector('img').alt;dialog.showModal();
 });
 root.querySelector('.close-image').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
