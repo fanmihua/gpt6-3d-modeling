@@ -215,25 +215,7 @@ if device:
     ob['deviceId'] = device`)+
     p('完整脚本的顺序是：读取本项目 DXF → 清空当前场景 → 准备材质和工具函数 → 创建房间、设备、管道 → 设置预览用相机灯光 → 保存和导出。读图方法针对这份演示文件编写，换图纸时需要根据实际内容调整。')+
     p('原建模脚本会清空当前 Blender 场景；阅读这些节选不需要执行脚本。')),
-  note('project-files','cad-part-2','对照真实文件：想改效果，应该改哪里？',
-    table(['文件','在项目里的作用','建议先看'],[
-      ['blender/build_pump_room.py','创建泵房的 Python 脚本。','box()、创建泵组的循环、末尾保存与导出。'],
-      ['public/models/pump-room.glb','网页使用的几何与材质资产。','P-01 节点、children、extras 与 mesh 引用。'],
-      ['public/models/pump-room.json','额外的设备清单。','编号、定位点、标签锚点与管道路径。'],
-      ['src/pump-scene.js','加载、照亮、显示模型，接入交互。','mount() 初始化，animate() 每帧绘制。'],
-      ['index.html / src/dashboard.js','大屏结构、数据和模型连接入口。','modelMount、mountScene()、selectDevice()。'],
-      ['scripts/build-standalone.mjs','把大屏和资产装进独立 HTML。','模型路径替换、Base64 和 Blob。'],
-    ])+heading('从想要的变化，反查修改位置')+
-    table(['想改变什么','主要修改位置','需要重新导出模型吗？'],[
-      ['数量、外形、零件、布局','建模 Python 脚本。','通常需要，重新执行并导出。'],
-      ['观察角度、灯光、阴影','pump-scene.js。','不需要。'],
-      ['完整墙体或剖切显示','网页可见性逻辑。','不需要，现有模型已保留墙体。'],
-      ['标题、卡片、页面布局','HTML、CSS 与 dashboard.js。','不需要。'],
-      ['流量、温度、演示告警','网页数据与状态逻辑。','不需要。'],
-      ['部件选择、零件拆解','模型层级与 pump-inspection.js。','模型缺少独立部件时需补建。'],
-      ['发给别人的独立文件','完成修改后重新打包。','需要更新独立 HTML。'],
-    ])+p('只换一个 GLB 路径，能解决读取新模型。要保留标签、点击详情和拆解，新模型的编号与层级、设备清单和网页逻辑还需要对应。')+
-    p('第一次阅读可以沿着这条短路线：<code>box()</code> 创建底座 → <code>group()</code> 写入 P-01 → GLB 的 <code>nodes[74]</code> → <code>loadAsync()</code> → <code>scene.add()</code> → <code>renderer.render()</code> → <code>onSelect()</code>。')),
+
 ];
 
 export function appendCodeNotes(root) {

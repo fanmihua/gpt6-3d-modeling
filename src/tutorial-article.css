@@ -13,3 +13,12 @@ html,body{height:auto;overflow:visible}#tutorial-root{height:auto;display:block}
 
 /* Practice starts with the existing empty template; retain the full screenshot. */
 .practice-start{margin:0 0 28px}.practice-start>.course-visual>button{height:auto;aspect-ratio:16/9}.practice-start>.course-chain{margin-top:17px}.practice-start>.course-chain li{padding:13px 0}.practice-start>.course-chain strong{font-size:16px}
+
+.template-preparation{padding:32px 0 12px;border-top:1px solid #ddd}
+.template-preparation>h2{font-size:24px;font-weight:500;margin:0 0 24px}
+
+.practice-scenarios{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:24px 0}
+.practice-scenarios article{border-top:1px solid #bbb;padding-top:18px}
+.practice-scenarios h3{font-size:20px;font-weight:500;margin:0 0 8px}
+.practice-scenarios p{color:#777;font-size:15px;line-height:1.7;margin:0}
+@media(max-width:640px){.practice-scenarios{grid-template-columns:1fr;gap:20px}}
