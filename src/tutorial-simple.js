@@ -23,7 +23,7 @@ ${course.map((item,i)=>`<section id="${item.id}" aria-labelledby="title-${item.i
 <dialog class="image-dialog" aria-label="查看案例图片"><button class="close-image" type="button" aria-label="关闭大图">×</button><img alt=""><p></p></dialog>`;
 
 // Use the same anchors for the sidebar and manuscript so their order cannot diverge.
-const anchors=[document.getElementById('top'),document.getElementById('warmup')];
+const anchors=[document.getElementById('top')];
 const menu=course.map((item,i)=>{
   const section=document.getElementById(item.id);anchors.push(section);
   const topics=[...section.querySelectorAll('.course-topic, .course-block')];
@@ -35,7 +35,7 @@ const menu=course.map((item,i)=>{
   const group=i===0||course[i-1].phase!==item.phase?`<span class="nav-group">${phaseNames[item.phase]}</span>`:'';
   return `${group}<div class="nav-chapter"><a class="chapter-link" href="#${item.id}"><span>${String(i+1).padStart(2,'0')}</span>${item.nav}</a><ul class="subnav">${children}</ul></div>`;
 }).join('');
-root.querySelector('.contents nav').innerHTML=`<div class="nav-chapter"><a class="chapter-link" href="#warmup">前置实操 · 口述需求</a></div>${menu}`;
+root.querySelector('.contents nav').innerHTML=menu;
 const previewVideo=root.querySelector('.preview-video');
 previewVideo.muted=true;
 if(matchMedia('(prefers-reduced-motion: reduce)').matches){previewVideo.autoplay=false;previewVideo.pause();}

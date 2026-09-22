@@ -6,9 +6,6 @@ export function createPreparation(image, templateUrl) {
   return `<div id="template" class="template-preparation"><div class="preview-heading"><h2>大屏模板</h2><a class="module-link" href="${templateUrl}" target="_blank" rel="noopener">打开大屏模板 ↗</a></div><div class="practice-start">
     <figure class="course-visual"><button type="button" data-image="empty-template.png" aria-label="放大大屏模板"><img data-src="${image('empty-template.png')}" alt="中央模型区留空的大屏模板" loading="lazy" decoding="async"></button></figure>
   </div></div>
-  <section id="warmup" aria-labelledby="title-warmup"><div class="section-heading"><div><h2 id="title-warmup">只用一句话建模</h2><p class="section-lead">不提供图纸或图片，先看口述需求能生成什么。</p></div></div>
-    <div class="description-card"><small>口述需求</small><p>做一个泵房，四台蓝色离心泵并排放置，两侧连接总管。</p></div>
-  </section>
     <div class="practice-scenarios"><article><h3>有 CAD 图纸</h3><p>尺寸与布局有依据，适合具体设备与细节还原。</p></article><article><h3>只有现场图片</h3><p>按外观与布局推演，适合大屏中的场景展示。</p></article></div>`;
 }
 

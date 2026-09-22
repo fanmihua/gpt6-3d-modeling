@@ -7,18 +7,9 @@ const passages = [
       "Hello，大家好，我是范米花儿。前段时间，有同学问我，能不能用 GPT 做一次三维建模测评。他比较关心的是水泵、阀门、管道，以及水厂园区这一类场景，所以这次我们就围绕这个需求来试一试。",
       "其实之前我也试过用 GPT 做人物模型，但那次的效果不太理想。这次的设备和建筑有比较多规则形状、重复结构，我想看看，换成这类对象之后，AI 能做到什么程度，又是怎样把它们做出来的。",
       "先给大家看一下完成后的效果：从厂区进入泵房，再查看水泵、部件和拆解。接下来，我们就从空模板开始，演示这个结果是怎样做出来的。",
-      "正式做这两个案例之前，先做一个小尝试：不提供图纸或图片，只口述一个建模需求，看看 AI 能做出什么效果。然后再给它具体资料，演示实际工作中的两种情况。",
       "为什么选这两个案例？它们对应实际工作中常见的两种情况。第一种是收到 CAD 图纸，设备尺寸和布局有明确依据。需要还原具体设备、做更细致的模型时，这类资料会更有帮助，能还原多少也取决于图纸给得是否完整。",
       "第二种是做大屏里的场景展示，对方没有图纸，只提供现场拍摄的图片。我们就根据外观和大致布局来建模。这次用 GPT 生成的虚拟厂区图，模拟这种资料条件。两个案例分别试一遍，看看不同输入能得到什么结果。",
       "做完以后，我们再结合刚才看到的脚本和模型，讲清几个问题：AI 负责什么，Blender 怎样执行脚本，为什么没有显示软件窗口也能建模，以及模型最后怎样进入网页。先看到过程和结果，再回头理解原理。"
-    ]
-  },
-  {
-    "id": "warmup",
-    "title": "前置实操 · 口述需求",
-    "paragraphs": [
-      "先不上传任何图纸或图片，只给一句要求：做一个泵房，四台蓝色离心泵并排放置，两侧连接总管。让 AI 根据这句话尝试建模，我们一起看看它会生成什么。",
-      "这里给了对象、数量、颜色和连接关系，但没有指定尺寸与外形细节，剩下的需要 AI 自行补充。看过这个结果，再进入有 CAD 图纸和只有参考图片的两个案例。"
     ]
   },
   {
@@ -196,4 +187,4 @@ const passages = [
   }
 ];
 
-export const narration = [passages.find(item=>item.id==='top'), passages.find(item=>item.id==='warmup'), ...courseOrder.flatMap((id,index)=>passages.filter(item=>item.id===id||item.id.startsWith(`${id}-part-`)).map(item=>item.id===id?{...item,title:item.title.replace(/^\d+/,String(index+1).padStart(2,'0'))}:item))];
+export const narration = [passages.find(item=>item.id==='top'), ...courseOrder.flatMap((id,index)=>passages.filter(item=>item.id===id||item.id.startsWith(`${id}-part-`)).map(item=>item.id===id?{...item,title:item.title.replace(/^\d+/,String(index+1).padStart(2,'0'))}:item))];
